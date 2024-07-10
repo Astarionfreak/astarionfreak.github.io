@@ -98,9 +98,18 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="index" startnode="1" creator="Twine" creator-version="2.9.0" format="SugarCube" format-version="2.36.1" ifid="E3E32940-2420-41FE-9DDF-62B66B32A858" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* BODY DESIGN */
+	<tw-storydata name="index" startnode="1" creator="Twine" creator-version="2.9.0" format="SugarCube" format-version="2.36.1" ifid="E3E32940-2420-41FE-9DDF-62B66B32A858" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* TEXT BOX */
+
+.passage input[type="text"] {
+min-width: 100px;
+width: 100px;
+}
+
+/* BODY DESIGN */
 
 body {
+ width: 100vw;
+ overflow-x: hidden;
  background-color: black;
  color: white;
  font-family: Futura,Impact,Helvetica,sans-serif;
@@ -153,7 +162,7 @@ Choose your genitals:
 	&lt;&lt;option &#39;Penis&#39;&gt;&gt;
    &lt;&lt;/listbox&gt;&gt;
 
-&lt;p style=&quot;font-size:65%; width:50%;&quot;&gt;By playing this game you ackowledge that you are 18+ and are aware there are explicit erotic elements. The characters are from Baldur&#39;s Gate 3 and belong to Larian Studios. This game is completely free to play and created for etertainment purposes only.&lt;/p&gt; [[Confirm choices]]</tw-passagedata><tw-passagedata pid="3" name="Confirm choices" tags="" position="475,250" size="100,100">&lt;&lt;if $pronouns is &#39;She/Her&#39;&gt;&gt;
+&lt;p style=&quot;font-size:65%;&quot;&gt;By playing this game you ackowledge that you are 18+ and are aware there are explicit erotic elements. The characters are from Baldur&#39;s Gate 3 and belong to Larian Studios. This game is completely free to play and created for etertainment purposes only.&lt;/p&gt; [[Confirm choices]]</tw-passagedata><tw-passagedata pid="3" name="Confirm choices" tags="" position="475,250" size="100,100">&lt;&lt;if $pronouns is &#39;She/Her&#39;&gt;&gt;
 	&lt;&lt;set $heshe to &#39;she&#39;&gt;&gt;
 	&lt;&lt;set $capitalheshe to &#39;She&#39;&gt;&gt;
 	&lt;&lt;set $hisher to &#39;her&#39;&gt;&gt;
