@@ -204,7 +204,7 @@ body[data-tags="no-nav"]
 /* FOOTER DESIGN */</style><script role="script" id="twine-user-script" type="text/twine-javascript">// disable UI bar
 $('#ui-bar').remove();
 $(document.head).find('#style-ui-bar').remove();</script><tw-tag name="FooterPassage" color="blue"></tw-tag><tw-tag name="HeaderPassage" color="blue"></tw-tag><tw-passagedata pid="1" name="Landing" tags="noheader landing nofooter" position="100,200" size="100,100">&lt;h1&gt;Sweet on my tongue&lt;/h1&gt;
-&lt;center&gt;&lt;h3&gt;[[Begin-&gt;Who are you?]]
+&lt;center&gt;&lt;h3&gt;[[Start here-&gt;Who are you?]]
 
 [[Campfire]] 
 
@@ -274,15 +274,15 @@ Choose your genitals:
 &lt;&lt;if visitedTags(&quot;Tadpole&quot;)&gt;&gt;[[▶ Talk to Astarion.-&gt;Talk to Astarion.]]
 [[▶ Talk to Gale.-&gt;Talk to Gale.]]
 [[▶ Talk to Shadowheart.-&gt;Talk to Shadowheart.]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;if not visitedTags(&quot;Withers&quot;)&gt;&gt;[[▶ Talk to Withers.-&gt;Talk to Withers.]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="PassageHeader" tags="PassageHeader" position="100,0" size="100,100">&lt;&lt;if !tags().includes(&#39;noheader&#39;)&gt;&gt;&lt;p style=&quot;text-align:right&quot;&gt;[[▶ Menu-&gt;Menu]]&lt;/p&gt;&lt;hr&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="PassageFooter" tags="PassageFooter" position="100,325" size="100,100">&lt;&lt;if !tags().includes(&#39;nofooter&#39;)&gt;&gt;&lt;p style=&quot;text-align:right;&quot;&gt;&lt;hr&gt;[[▶ Return to the campfire.-&gt;Campfire]]&lt;/p&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="noheader nofooter" position="300,0" size="100,100">▶ &lt;&lt;return&gt;&gt;
+&lt;&lt;if not visitedTags(&quot;Withers&quot;)&gt;&gt;[[▶ Talk to Withers.-&gt;Talk to Withers.]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="PassageHeader" tags="PassageHeader" position="100,0" size="100,100">&lt;&lt;if !tags().includes(&#39;noheader&#39;)&gt;&gt;&lt;p style=&quot;text-align:right&quot;&gt;[[▶ Menu-&gt;Menu]]&lt;/p&gt;&lt;hr&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="PassageFooter" tags="PassageFooter" position="100,325" size="100,100">&lt;&lt;if !tags().includes(&#39;nofooter&#39;)&gt;&gt;&lt;p style=&quot;text-align:right;&quot;&gt;&lt;hr&gt;[[▶ Return to the campfire.-&gt;Campfire]]&lt;/p&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="noheader nofooter" position="300,0" size="100,100">&lt;&lt;link &quot;▶ Save or load game&quot;&gt;&gt;
+    &lt;&lt;script&gt;&gt;UI.saves()&lt;&lt;/script&gt;&gt;
+&lt;&lt;/link&gt;&gt;
 
 [[▶ Start over|Start][state.restart()]]
 
-[[▶ Change your details-&gt;Who are you?]] 
+▶ &lt;&lt;return&gt;&gt;
 
-&lt;&lt;link &quot;▶ Load game&quot;&gt;&gt;
-    &lt;&lt;script&gt;&gt;UI.saves()&lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;
+[[▶ Change your details-&gt;Who are you?]] 
 
 [[▶ Credits-&gt;Credits]]</tw-passagedata><tw-passagedata pid="8" name="Credits" tags="center nofooter" position="450,0" size="100,100">&lt;div id=&quot;centertext&quot;&gt;&lt;h3&gt;Written and designed by&lt;/h3&gt;
 owlnoises &lt;i&gt;(aka astarionfreak)&lt;/i&gt;
@@ -299,11 +299,11 @@ Who has been on your mind all day?
 
 &lt;hr id=&quot;hrstyle&quot;&gt;
 
-[[1. Astarion staring at your throat.]]
+[[1. Astarion.-&gt;1. Astarion staring at your throat.]]
 
-[[2. Gale looking particularly flushed after battle.]]
+[[2. Gale.-&gt;2. Gale looking particularly flushed after battle.]]
 
-[[3. Shadowheart washing up in the river.]]</tw-passagedata><tw-passagedata pid="11" name="Keep them out." tags="BlockThemOut" position="1000,200" size="100,100">Your anonymous companion keeps poking and prodding at your brain, trying to pick you apart, but you resist. You successfully push the intruder out of your mind.</tw-passagedata><tw-passagedata pid="12" name="Talk to Astarion." tags="Astarion" position="400,450" size="100,100">&quot;Hello, darling. It&#39;s a lovely evening, isn&#39;t it?&quot;
+[[3. Shadowheart.-&gt;3. Shadowheart washing up in the river.]]</tw-passagedata><tw-passagedata pid="11" name="Keep them out." tags="BlockThemOut" position="1000,200" size="100,100">Your anonymous companion keeps poking and prodding at your brain, trying to pick you apart, but you resist. You successfully push the intruder out of your mind.</tw-passagedata><tw-passagedata pid="12" name="Talk to Astarion." tags="Astarion" position="400,450" size="100,100">&quot;Hello, darling. It&#39;s a lovely evening, isn&#39;t it?&quot;
 
 &lt;hr id=&quot;hrstyle&quot;&gt;
 
@@ -347,7 +347,7 @@ Who has been on your mind all day?
 
 You kept the wine.</tw-passagedata><tw-passagedata pid="22" name="&quot;Fine. You don&#39;t have to be so precious about it.&quot; Give the wine back." tags="" position="275,700" size="100,100">&lt;&lt;set $wine to &quot;false&quot;&gt;&gt;
 
-You give the wine back.</tw-passagedata><tw-passagedata pid="23" name="1. Astarion staring at your throat." tags="AstarionThroat" position="975,525" size="100,100">Astarion staring at your throat.
+You give the wine back.</tw-passagedata><tw-passagedata pid="23" name="1. Astarion staring at your throat." tags="AstarionThroat" position="975,525" size="100,100">The intruder pulls forth the memory you&#39;ve been replaying most this evening. It&#39;s Astarion smiling wide enough you can see his fangs. He&#39;s laughing at something you said.
 
 &lt;hr id=&quot;hrstyle&quot;&gt;
 
@@ -355,7 +355,7 @@ You give the wine back.</tw-passagedata><tw-passagedata pid="23" name="1. Astari
 
 [[2. Say nothing. Push back against the intruder. Use the connection to find out who they are.]]
 
-[[3. Fuck this. Block them out and return to the campfire. -&gt;Campfire]]</tw-passagedata><tw-passagedata pid="24" name="2. Gale looking particularly flushed after battle." tags="GaleBattle" position="1100,525" size="100,100">Gale after battle.
+[[3. Fuck this. Block them out and return to the campfire. -&gt;Campfire]]</tw-passagedata><tw-passagedata pid="24" name="2. Gale looking particularly flushed after battle." tags="GaleBattle" position="1100,525" size="100,100">The intruder pulls forth the memory you&#39;ve been replaying most this evening.  It&#39;s Gale.
 
 &lt;hr id=&quot;hrstyle&quot;&gt;
 
@@ -363,7 +363,7 @@ You give the wine back.</tw-passagedata><tw-passagedata pid="23" name="1. Astari
 
 [[2. Say nothing. Push back against the intruder. Use the connection to find out who they are.]]
 
-[[3. Fuck this. Block them out and return to the campfire. -&gt;Campfire]]</tw-passagedata><tw-passagedata pid="25" name="3. Shadowheart washing up in the river." tags="ShadowheartRiver" position="1225,525" size="100,100">You push forward a vision of the woman you’re harboring feelings for. Shadowheart is a striking vision in the dusk light. Her armor is in a neat pile on the river’s edge. She stands only ankle-deep in the water, bending over to rinse the day’s sweat and gore off her fair skin. Despite her secretive nature, you feel close to her.
+[[3. Fuck this. Block them out and return to the campfire. -&gt;Campfire]]</tw-passagedata><tw-passagedata pid="25" name="3. Shadowheart washing up in the river." tags="ShadowheartRiver" position="1225,525" size="100,100">The intruder pulls forth the memory you&#39;ve been replaying most this evening. Shadowheart is a striking vision in the dusk light. Her armor is in a neat pile on the river’s edge. She stands only ankle-deep in the water, bending over to rinse the day’s sweat and gore off her fair skin. Despite her secretive nature, you feel close to her.
 
 &lt;hr id=&quot;hrstyle&quot;&gt;
 
