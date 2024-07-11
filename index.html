@@ -111,12 +111,16 @@ body {
 }
 
 a {
- color:crimson;
-  text-decoration:none;
+ color:white;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
 }
 a:hover {
- color: grey;
- text-decoration: none;
+ color: crimson;
+ text-decoration:underline;
 }
 
 a.link-external::after {
@@ -195,15 +199,19 @@ body[data-tags="no-nav"]
 #PassageHeader { display:none;
 }
 
-/* FOOTER DESIGN */
-
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">$('#ui-bar').remove();
+/* FOOTER DESIGN */</style><script role="script" id="twine-user-script" type="text/twine-javascript">// disable UI bar
+$('#ui-bar').remove();
 $(document.head).find('#style-ui-bar').remove();</script><tw-tag name="FooterPassage" color="blue"></tw-tag><tw-tag name="HeaderPassage" color="blue"></tw-tag><tw-passagedata pid="1" name="Landing" tags="noheader landing nofooter" position="100,200" size="100,100">&lt;h1&gt;Sweet on my tongue&lt;/h1&gt;
 &lt;h3&gt;[[Begin-&gt;Who are you?]]
 
 [[Sit at the campfire.-&gt;Campfire]]
 
-[[Menu]]&lt;/h3&gt;</tw-passagedata><tw-passagedata pid="2" name="Who are you?" tags="noheader nofooter" position="300,225" size="100,100">What is your name?
+[[Menu]]&lt;/h3&gt;
+
+&lt;&lt;button $dark&gt;&gt;dark&lt;&lt;/button&gt;&gt;
+
+
+</tw-passagedata><tw-passagedata pid="2" name="Who are you?" tags="noheader nofooter" position="300,225" size="100,100">What is your name?
  &lt;&lt;textbox &quot;$name&quot; &quot;Tav&quot;&gt;&gt;
  
  Choose your pronouns:
