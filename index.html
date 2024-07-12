@@ -283,11 +283,19 @@ body[data-tags="no-nav"]
 
       /* FOOTER DESIGN */</style><script role="script" id="twine-user-script" type="text/twine-javascript">// disable UI bar
 $('#ui-bar').remove();
-$(document.head).find('#style-ui-bar').remove();</script><tw-tag name="FooterPassage" color="blue"></tw-tag><tw-tag name="HeaderPassage" color="blue"></tw-tag><tw-tag name="Astarion" color="red"></tw-tag><tw-tag name="Gale" color="purple"></tw-tag><tw-tag name="Shadowheart" color="green"></tw-tag><tw-tag name="nofooter" color="orange"></tw-tag><tw-tag name="noheader" color="yellow"></tw-tag><tw-passagedata pid="1" name="Landing" tags="noheader landing nofooter" position="1000,300" size="100,100">&lt;h1 id=&quot;centertextheader&quot;&gt;sweet on my tongue.&lt;/h1&gt;&lt;div id=&quot;centertext&quot;&gt;&lt;a id=&quot;lpbtn&quot; data-passage=&quot;Who are you?&quot;&gt;Start game&lt;/a&gt;
+$(document.head).find('#style-ui-bar').remove();
+
+//No return
+
+$(document).on(':passagestart', function (ev) {
+	if (!ev.passage.tags.includes('noreturn')) {
+		State.variables.return = ev.passage.title;
+	}
+});</script><tw-tag name="FooterPassage" color="blue"></tw-tag><tw-tag name="HeaderPassage" color="blue"></tw-tag><tw-tag name="Astarion" color="red"></tw-tag><tw-tag name="Gale" color="purple"></tw-tag><tw-tag name="Shadowheart" color="green"></tw-tag><tw-tag name="nofooter" color="orange"></tw-tag><tw-tag name="noheader" color="yellow"></tw-tag><tw-passagedata pid="1" name="Landing" tags="noheader landing nofooter" position="1000,300" size="100,100">&lt;h1 id=&quot;centertextheader&quot;&gt;sweet on my tongue.&lt;/h1&gt;&lt;div id=&quot;centertext&quot;&gt;&lt;a id=&quot;lpbtn&quot; data-passage=&quot;Who are you?&quot;&gt;Start game&lt;/a&gt;
 
 &lt;a id=&quot;lpbtn&quot; data-passage=&quot;Menu&quot;&gt;Load game&lt;/a&gt;
 
-&lt;a id=&quot;lpbtn&quot; data-passage=&quot;Credits&quot;&gt;Credits&lt;/a&gt;&lt;/div&gt;&lt;&lt;set $AstarionRom to 0&gt;&gt;&lt;&lt;set $GaleRom to 0&gt;&gt;&lt;&lt;set $ShadowheartRom to 0&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Who are you?" tags="noheader nofooter" position="1200,300" size="100,100">What is your name?
+&lt;a id=&quot;lpbtn&quot; data-passage=&quot;Credits&quot;&gt;Credits&lt;/a&gt;&lt;/div&gt;&lt;&lt;set $AstarionRom to 0&gt;&gt;&lt;&lt;set $GaleRom to 0&gt;&gt;&lt;&lt;set $ShadowheartRom to 0&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Who are you?" tags="noheader nofooter noreturn" position="1150,300" size="100,100">What is your name?
  &lt;&lt;textbox &quot;$name&quot; &quot;Tav&quot;&gt;&gt;
  
  Choose your pronouns:
@@ -305,7 +313,7 @@ Choose your genitals:
    &lt;&lt;/listbox&gt;&gt;
 
 &lt;p style=&quot;font-size:65%;&quot;&gt;By clicking &#39;confirm choices&#39; you acknowledge that you are 18+ and are aware there are explicit erotic elements in this game. The characters are from Baldur&#39;s Gate 3. They were created by Larian Studios and are owned by Wizards of the Coast. This choose your own adventure game is completely free to play and created for entertainment purposes only.&lt;/p&gt;
-[[▶ Confirm choices-&gt;Confirm choices]]</tw-passagedata><tw-passagedata pid="3" name="Confirm choices" tags="" position="1300,300" size="100,100">&lt;&lt;if $pronouns is &#39;She/Her&#39;&gt;&gt;
+[[▶ Confirm choices-&gt;Confirm choices]]</tw-passagedata><tw-passagedata pid="3" name="Confirm choices" tags="noreturn" position="1300,300" size="100,100">&lt;&lt;if $pronouns is &#39;She/Her&#39;&gt;&gt;
 	&lt;&lt;set $heshe to &#39;she&#39;&gt;&gt;
 	&lt;&lt;set $capitalheshe to &#39;She&#39;&gt;&gt;
 	&lt;&lt;set $hisher to &#39;her&#39;&gt;&gt;
@@ -344,9 +352,13 @@ Choose your genitals:
 	&lt;&lt;set $capitalhimselfherself to &#39;Themselves&#39;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;goto Campfire&gt;&gt;
+&lt;&lt;if visitedTags(&quot;campfire&quot;)&gt;&gt;
 
-[[Campfire]]</tw-passagedata><tw-passagedata pid="4" name="Campfire" tags="nofooter campfire" position="1600,300" size="100,100">You sit on your bedroll, staring deep into the crackling campfire. Your companions are all at their respective tents.
+&lt;&lt;goto $return&gt;&gt;
+
+&lt;&lt;else&gt;&gt; &lt;&lt;goto Campfire&gt;&gt;
+
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Campfire" tags="nofooter campfire" position="1600,300" size="100,100">You sit on your bedroll, staring deep into the crackling campfire. Your companions are all at their respective tents.
 
 [[▶ Talk to Astarion.-&gt;Talk to Astarion.]]
 
@@ -354,19 +366,19 @@ Choose your genitals:
 
 [[▶ Talk to Shadowheart.-&gt;Talk to Shadowheart.]]
 
-&lt;&lt;if not visitedTags(&quot;Withers&quot;)&gt;&gt;[[▶ Talk to Withers.-&gt;Talk to Withers.]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="PassageHeader" tags="PassageHeader" position="1000,200" size="100,100">&lt;&lt;if !tags().includes(&#39;noheader&#39;)&gt;&gt;&lt;p style=&quot;text-align:right&quot;&gt;&lt;&lt;if tags().includes(&#39;Astarion&#39;)&gt;&gt;Astarion:&lt;&lt;print $AstarionRom&gt;&gt; | &lt;&lt;elseif tags().includes(&#39;Gale&#39;)&gt;&gt;Gale:&lt;&lt;print $GaleRom&gt;&gt; | &lt;&lt;elseif tags().includes(&#39;Shadowheart&#39;)&gt;&gt;Shadowheart:&lt;&lt;print $ShadowheartRom&gt;&gt; |  &lt;&lt;/if&gt;&gt;[[▶ Menu-&gt;Menu]]&lt;/p&gt;&lt;hr&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="PassageFooter" tags="PassageFooter" position="1000,500" size="100,100">&lt;&lt;if !tags().includes(&#39;nofooter&#39;)&gt;&gt;&lt;p style=&quot;text-align:right;&quot;&gt;&lt;hr&gt;[[▶ Return to the campfire.-&gt;Campfire]]&lt;/p&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if not visitedTags(&quot;Withers&quot;)&gt;&gt;[[▶ Talk to Withers.-&gt;Talk to Withers.]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="PassageHeader" tags="PassageHeader" position="1000,100" size="100,100">&lt;&lt;if !tags().includes(&#39;noheader&#39;)&gt;&gt;&lt;p style=&quot;text-align:right&quot;&gt;&lt;&lt;if tags().includes(&#39;Astarion&#39;)&gt;&gt;Astarion:&lt;&lt;print $AstarionRom&gt;&gt; | &lt;&lt;elseif tags().includes(&#39;Gale&#39;)&gt;&gt;Gale:&lt;&lt;print $GaleRom&gt;&gt; | &lt;&lt;elseif tags().includes(&#39;Shadowheart&#39;)&gt;&gt;Shadowheart:&lt;&lt;print $ShadowheartRom&gt;&gt; |  &lt;&lt;/if&gt;&gt;[[▶ Menu-&gt;Menu]]&lt;/p&gt;&lt;hr&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="PassageFooter" tags="PassageFooter" position="1000,500" size="100,100">&lt;&lt;if !tags().includes(&#39;nofooter&#39;)&gt;&gt;&lt;p style=&quot;text-align:right;&quot;&gt;&lt;hr&gt;[[▶ Return to the campfire.-&gt;Campfire]]&lt;/p&gt;&lt;&lt;/if&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="noheader nofooter menu" position="1200,100" size="100,100">&lt;&lt;link &quot;▶ Save or load game&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="noheader nofooter menu noreturn" position="1200,100" size="100,100">&lt;&lt;link &quot;▶ Save or load game&quot;&gt;&gt;
     &lt;&lt;script&gt;&gt;UI.saves()&lt;&lt;/script&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
-▶ &lt;&lt;return&gt;&gt;
+&lt;&lt;link &quot;▶ Return&quot; $return&gt;&gt;&lt;&lt;/link&gt;&gt;
 
 [[▶ Start over|Start][state.restart()]]
 
 [[▶ Change your details-&gt;Who are you?]] 
 
-[[▶ Credits-&gt;Credits]]</tw-passagedata><tw-passagedata pid="8" name="Credits" tags="center credits menu nofooter" position="1400,100" size="100,100">&lt;div id=&quot;centertext&quot;&gt;&lt;h3&gt;Written and designed by&lt;/h3&gt;
+[[▶ Credits-&gt;Credits]]</tw-passagedata><tw-passagedata pid="8" name="Credits" tags="center credits menu nofooter noreturn" position="1400,100" size="100,100">&lt;div id=&quot;centertext&quot;&gt;&lt;h3&gt;Written and designed by&lt;/h3&gt;
 owlnoises &lt;i&gt;(aka astarionfreak)&lt;/i&gt;
 
 &lt;h3&gt;Find me&lt;/h3&gt;
@@ -377,7 +389,7 @@ owlnoises &lt;i&gt;(aka astarionfreak)&lt;/i&gt;
 &lt;h3 id=&quot;centertext&quot;&gt;Disclaimer&lt;/h3&gt;
 The characters are from Baldur&#39;s Gate 3. They were created by Larian Studios and are owned by Wizards of the Coast. This choose your own adventure game is completely free to play and created for entertainment purposes only.
 
-&lt;&lt;if visitedTags(&quot;campfire&quot;)&gt;&gt;[[▶ Return to the campfire.-&gt;Campfire]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Talk to Astarion." tags="Astarion nofooter" position="1200,700" size="100,100">Astarion lifts a bottle of wine to his lips and takes a sip as you approach his tent. His eyes never leave yours. There’s something, &lt;i&gt;so, very&lt;/i&gt; intense about the way he’s staring at you. He finishes his drink with a satisfied smile. “Hello, darling. It’s a quiet evening for once.”
+&lt;&lt;link &quot;▶ Return to the game&quot; $return&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Talk to Astarion." tags="Astarion nofooter" position="1200,700" size="100,100">Astarion lifts a bottle of wine to his lips and takes a sip as you approach his tent. His eyes never leave yours. There’s something, &lt;i&gt;so, very&lt;/i&gt; intense about the way he’s staring at you. He finishes his drink with a satisfied smile. “Hello, darling. It’s a quiet evening for once.”
 
 &lt;hr id=&quot;hrstyle&quot;&gt;
 
